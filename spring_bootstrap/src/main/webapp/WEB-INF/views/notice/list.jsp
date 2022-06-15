@@ -3,10 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-
 <c:set var="pageMaker" value="${dataMap.pageMaker }" />
 <c:set var="cri" value="${dataMap.pageMaker.cri }" />
 <c:set var="noticeList" value="${dataMap.noticeList }" />
+
+
+
 
 <head></head>
 
@@ -108,3 +110,24 @@
 		</div>
 		
     </section>
+    
+<c:if test="${from eq 'regist'}" >
+<script>
+   	alert("공지사항 등록이 성공했습니다.");
+   	window.opener.location.reload();	
+   	window.close();
+</script>
+</c:if>
+    
+    
+</body>
+
+
+
+
+
+
+
+
+
+

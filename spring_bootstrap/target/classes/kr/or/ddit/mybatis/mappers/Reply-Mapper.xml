@@ -18,7 +18,7 @@
 		order by rno asc
 	</select>
 	<select id="countReply" resultType="int">
-		select count(bno) 
+		select count(*) 
 		from reply
 		where bno=#{bno}
 	</select>

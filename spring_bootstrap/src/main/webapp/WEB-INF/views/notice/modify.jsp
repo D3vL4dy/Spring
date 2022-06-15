@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-    
+       
 <head>
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/bootstrap/plugins/summernote/summernote-bs4.min.css">
-</head>    
+</head>
+
 <title>상세 보기</title>
 
 <body>
@@ -73,13 +74,15 @@
     </section>
     <!-- /.content -->
     
-    <script>
-    	window.onload=function(){
-        	summernote_go($('textarea[name="content"]'),'<%=request.getContextPath()%>');
-        }
-    	
-    	function modifyPOST_go(){
-    		$("form[role='modifyForm']").submit();
-    	}
-    </script>
-</body>
+   <script>
+	window.onload=function(){
+		summernote_go($('textarea[name="content"]'),'<%=request.getContextPath()%>');	
+   	}   
+	
+	 function modifyPOST_go(){
+		 //alert("modify btn click");
+		 $("form[role='modifyForm']").submit();
+	 }
+   </script>
+ </body>
+ 

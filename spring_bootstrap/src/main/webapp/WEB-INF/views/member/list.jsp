@@ -7,12 +7,12 @@
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%> 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-
 <c:set var="pageMaker" value="${dataMap.pageMaker }" />
 <c:set var="cri" value="${dataMap.pageMaker.cri }" />
 <c:set var="memberList" value="${dataMap.memberList }" />
 
 <%-- <%@ include file="/WEB-INF/include/header.jsp" %> --%>
+
 
   <div >
 	 <!-- Main content -->
@@ -119,7 +119,7 @@
     		</div> <!-- card-body -->
     		<div class="card-footer">
     			<!-- pagination -->
-				<%@ include file="/WEB-INF/views/common/pagination.jsp" %>
+    			<%@ include file="/WEB-INF/views/common/pagination.jsp" %>
     		</div>
 	     </div>
    	</section>
@@ -138,3 +138,19 @@ window.onload=function(){
 <%-- <%@ include file="/WEB-INF/include/footer.jsp" %> --%>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

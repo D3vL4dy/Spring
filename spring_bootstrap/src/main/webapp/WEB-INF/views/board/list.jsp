@@ -101,13 +101,14 @@
 												
 							<a href="javascript:OpenWindow('detail.do?from=list&bno=${board.bno }','상세보기',800,700);">
 								<span class="col-sm-12 ">${board.title }
-									<c:if test="${board.replycnt ne 0}">
-										<span class="nav-item">
+									<c:if test="${board.replycnt ne 0 }">		
+										<span class="nav-item">															
 										&nbsp;&nbsp;<i class="fa fa-comment"></i>
-										<span class="badge badge-warning navbar-badge">${board.replycnt }</span>
+										<span class="badge badge-warning navbar-badge">${board.replycnt}</span>
 										</span>
-									</c:if>	
-								</span>								
+										
+									</c:if>
+							</span>								
 							</a>
 							</td>
 							<td>${board.writer }</td>
@@ -126,6 +127,12 @@
 		
     </section>
     <!-- /.content -->
-
+<c:if test="${from eq 'regist' }" >
+	<script>
+		alert("등록되었습니다.");
+		window.close();
+		window.opener.location.reload();			
+	</script>
+</c:if>
 
 </body>

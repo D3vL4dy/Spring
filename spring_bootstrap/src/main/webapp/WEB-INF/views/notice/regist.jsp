@@ -74,24 +74,34 @@
     <!-- /.content -->
     
     
-    <script>
-    	window.onload=function(){
-    		// target, context
-    		summernote_go($('textarea[name="content"]'),'<%=request.getContextPath()%>');
-    	}
-    </script>
-    
-    <script>
-    	function regist_go(){
-    		// var form = $('form[role="form"]')[0];
-    		var form = document.registForm;
-    		if(form.title.value==""){
-    			alert("제목은 필수입니다.");
-    			return;
-    		}
-    		form.submit();
-    	}
-    </script>
-    
+<script>
+	window.onload=function(){
+		summernote_go($('textarea[name="content"]'),'<%=request.getContextPath()%>');	
+	}
+</script>
+
+<script>
+
+function regist_go(){
+//var form = $('form[role="form"]')[0];
+	var form = document.registForm;
+	if(form.title.value==""){
+		alert("제목은 필수입니다.");
+		return;
+	}
+	
+	form.submit();
+}
+</script>    
 </body>
 
+
+
+
+
+
+
+
+
+
+       

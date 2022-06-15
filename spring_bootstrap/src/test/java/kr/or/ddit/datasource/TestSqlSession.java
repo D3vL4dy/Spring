@@ -16,25 +16,22 @@ import com.jsp.dto.MemberVO;
 @ContextConfiguration("classpath:kr/or/ddit/context/dataSource-context.xml")
 @Transactional
 public class TestSqlSession {
-	
-		
+
 	@Autowired
 	private SqlSession session;
-	
-	
+
 	@Test
-	public void testGetMember()throws Exception{
+	public void testGetMember() throws Exception {
 		String testID = "mimi";
-		
-		MemberVO member = session.selectOne("Member-Mapper.selectMemberById",
-						testID);
-		
+
+		MemberVO member = session.selectOne("Member-Mapper.selectMemberById", testID);
+
 		Assert.assertNotNull(member);
 	}
-	
+
 	@Test
 	@Rollback
-	public void testInsertMember()throws Exception{
+	public void testInsertMember() throws Exception {
 		MemberVO member = new MemberVO();
 		member.setId("tototo");
 		member.setPwd("tototo");
@@ -43,24 +40,12 @@ public class TestSqlSession {
 		member.setPhone("000-0000-1111");
 		member.setPicture("noimage.jpg");
 		member.setAuthority("ROLE_USER");
-		
-		session.update("Member-Mapper.insertMember",member);
-		
-		MemberVO result
-			= session.selectOne("Member-Mapper.selectMemberById",member.getId());
-		
-		
+
+		session.update("Member-Mapper.insertMember", member);
+
+		MemberVO result = session.selectOne("Member-Mapper.selectMemberById", member.getId());
+
 		Assert.assertNotNull(result);
 	}
-	
+
 }
-
-
-
-
-
-
-
-
-
-
