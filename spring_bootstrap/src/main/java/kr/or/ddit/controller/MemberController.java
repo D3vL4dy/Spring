@@ -103,12 +103,9 @@ public class MemberController {
 
 	@Autowired
 	MemberRestController restController;
-	
-	
-	@RequestMapping(value = "/modify", method = RequestMethod.POST, 
-					produces = "text/plain;charset=utf-8")
-	public String modify(MemberModifyCommand modifyReq, HttpSession session, 
-									RedirectAttributes rttr) throws Exception {
+
+	@RequestMapping(value = "/modify", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
+	public String modify(MemberModifyCommand modifyReq, HttpSession session, RedirectAttributes rttr) throws Exception {
 
 		String url = "redirect:/member/detail.do";
 
@@ -116,46 +113,40 @@ public class MemberController {
 
 		// 신규 파일 변경 및 기존 파일 삭제
 		String oldPicture = memberService.getMember(member.getId()).getPicture();
-		if (modifyReq.getUploadPicture() != null && !modifyReq.getUploadPicture()
-						.isEmpty()) {
-			String fileName = restController.savePicture(oldPicture, 
-						modifyReq.getPicture());
+		if (modifyReq.getUploadPicture() != null && !modifyReq.getUploadPicture().isEmpty()) {
+			String fileName = restController.savePicture(oldPicture, modifyReq.getPicture());
 			member.setPicture(fileName);
 		} else {
 			member.setPicture(oldPicture);
 		}
-		
-		//DB 내용 수정
-		memberService.modify(member);	
-		
-		
+
+		// DB 내용 수정
+		memberService.modify(member);
 
 		// 로그인한 사용자의 경우 수정된 정보로 session 업로드
-		rttr.addFlashAttribute("parentReload",false);
+		rttr.addFlashAttribute("parentReload", false);
 		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
 		if (loginUser != null && member.getId().equals(loginUser.getId())) {
 			session.setAttribute("loginUser", member);
-			rttr.addFlashAttribute("parentReload",true);
+			rttr.addFlashAttribute("parentReload", true);
 		}
-		
-		rttr.addAttribute("id",member.getId());
-		rttr.addFlashAttribute("from","modify");
-		rttr.addFlashAttribute("member",memberService.getMember(modifyReq.getId()));
-		
+
+		rttr.addAttribute("id", member.getId());
+		rttr.addFlashAttribute("from", "modify");
+		rttr.addFlashAttribute("member", memberService.getMember(modifyReq.getId()));
+
 		return url;
 	}
 
-	
 	@Resource(name = "picturePath")
 	private String picturePath;
-	
+
 	@RequestMapping(value = "/remove", method = RequestMethod.GET)
-	public String remove(String id, HttpSession session, 
-							RedirectAttributes rttr) throws Exception {
+	public String remove(String id, HttpSession session, RedirectAttributes rttr) throws Exception {
 		String url = "redirect:/member/detail.do";
-		
+
 		MemberVO member;
-		
+
 		// 이미지 파일을 삭제
 		member = memberService.getMember(id);
 		String savePath = this.picturePath;
@@ -163,34 +154,22 @@ public class MemberController {
 		if (imageFile.exists()) {
 			imageFile.delete();
 		}
-		
-		//DB삭제
+
+		// DB삭제
 		memberService.remove(id);
-		
+
 		// 삭제되는 회원이 로그인 회원인경우 로그아웃 해야함.
 		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
-		if (loginUser!=null && loginUser.getId().equals(member.getId())) {
+		if (loginUser != null && loginUser.getId().equals(member.getId())) {
 			session.invalidate();
 		}
-		
-		
-		rttr.addFlashAttribute("removeMember",member);		
-		rttr.addFlashAttribute("from","remove");
-		
-		rttr.addAttribute("id",id);
-		
+
+		rttr.addFlashAttribute("removeMember", member);
+		rttr.addFlashAttribute("from", "remove");
+
+		rttr.addAttribute("id", id);
+
 		return url;
 	}
-	
-	
-	
+
 }
-
-
-
-
-
-
-
-
-

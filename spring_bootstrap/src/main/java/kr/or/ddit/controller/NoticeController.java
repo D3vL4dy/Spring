@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.josephoconnell.html.HTMLInputFilter;
 import com.jsp.command.SearchCriteria;
 import com.jsp.dto.NoticeVO;
 import com.jsp.service.NoticeService;

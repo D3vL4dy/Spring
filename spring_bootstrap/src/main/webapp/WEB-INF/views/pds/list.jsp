@@ -116,6 +116,15 @@
 			</div>
 		</div>
 	</section>
+	<!-- /.content -->
+<c:if test="${from eq 'regist' }" >
+	<script>
+		alert("등록되었습니다.");
+		window.close();
+		window.opener.location.reload();			
+	</script>
+</c:if>
+
 
 </body>
 
