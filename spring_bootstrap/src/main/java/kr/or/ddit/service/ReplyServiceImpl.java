@@ -44,7 +44,7 @@ public class ReplyServiceImpl implements ReplyService{
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(count);
-		System.out.println("count : " + count);
+
 		dataMap.put("replyList", replyList);
 		dataMap.put("pageMaker", pageMaker);
 

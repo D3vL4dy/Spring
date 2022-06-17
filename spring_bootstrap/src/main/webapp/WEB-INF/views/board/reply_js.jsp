@@ -39,7 +39,7 @@
 </li>
 {{#each pageNum}}
 <li class="paginate_button page-item {{signActive this}} ">
-	<a href="javascript:getPage('<%=request.getContextPath()%>/replies/${board.bno}/{{this}}',{{this}});" aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link">
+	<a href="javascript:getPage('<%=request.getContextPath()%>/reply/list.do?bno=${board.bno}&page={{this}}',{{this}});" aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link">
 		{{this}}
 	</a>
 </li>
@@ -209,5 +209,20 @@ function replyRemove_go(){
 	});
 }
 </script> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

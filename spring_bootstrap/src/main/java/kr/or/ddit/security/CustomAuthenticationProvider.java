@@ -38,14 +38,16 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
 			if (invalidCheck) {
 				// 스프링 시큐리티 내부 클래스로 인증 토큰 생성한다.
-				UsernamePasswordAuthenticationToken result = new UsernamePasswordAuthenticationToken(
-						authUser.getUsername(), authUser.getPassword(), authUser.getAuthorities());
+				UsernamePasswordAuthenticationToken result 
+							= new UsernamePasswordAuthenticationToken(
+						authUser.getUsername(), authUser.getPassword(), 
+						authUser.getAuthorities());
 				// 전달할 내용을 설정한 후
 				result.setDetails(authUser);
 				// 리턴한다. successHandler로 전송된다.
 				return result;
 			}
-
+			
 			throw new BadCredentialsException("상태변경으로 로그인이 불가합니다.");
 		} catch (NotFoundIdException e) { // id 불일치
 			throw new BadCredentialsException("존재하지 않는 아이디입니다.");
@@ -64,3 +66,13 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+

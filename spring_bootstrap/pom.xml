@@ -20,8 +20,8 @@
 		<java-version>1.8</java-version>
 		<org.springframework-version>4.3.2.RELEASE</org.springframework-version>
 		<org.springframework-security>3.2.3.RELEASE</org.springframework-security>
-
-
+		
+		
 		<oracle.ojdbc-version>11.2.0.3</oracle.ojdbc-version>
 		<org.apache.dbcp2-version>2.5.0</org.apache.dbcp2-version>
 		<org.mybatis-version>3.5.0</org.mybatis-version>
@@ -30,7 +30,7 @@
 		<jackson.databind-version>2.9.8</jackson.databind-version>
 		<commons.fileupload-version>1.3.1</commons.fileupload-version>
 		<aspectjweaver-version>1.9.6</aspectjweaver-version>
-
+		
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
@@ -63,8 +63,6 @@
 			<artifactId>spring-test</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-
-
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
@@ -90,7 +88,6 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-
 
 		<!-- ojdbc6 -->
 		<dependency>
@@ -123,7 +120,7 @@
 			<artifactId>sitemesh</artifactId>
 			<version>${opensymphony.sitemesh-version}</version>
 		</dependency>
-
+		
 		<!-- jackson-databind -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -136,15 +133,15 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>${commons.fileupload-version}</version>
 		</dependency>
-
+		
 		<!-- log4jdbc-remix -->
 		<dependency>
 			<groupId>org.lazyluke</groupId>
 			<artifactId>log4jdbc-remix</artifactId>
 			<version>0.2.7</version>
 		</dependency>
-
-
+	
+	
 		<!-- aspectjweaver -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
@@ -223,7 +220,7 @@
 			<version>2.3.1</version>
 			<scope>provided</scope>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
