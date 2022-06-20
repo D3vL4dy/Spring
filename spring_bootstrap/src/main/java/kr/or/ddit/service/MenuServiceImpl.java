@@ -9,12 +9,13 @@ import com.jsp.service.MenuService;
 import kr.or.ddit.dao.MenuDAOBean;
 
 public class MenuServiceImpl implements MenuService {
-	
+
 	private MenuDAOBean menuDAOBean;// = new MenuDAOImpl();
+
 	public void setMenuDAO(MenuDAOBean menuDAOBean) {
 		this.menuDAOBean = menuDAOBean;
 	}
-	
+
 	@Override
 	public List<MenuVO> getMainMenuList() throws SQLException {
 		List<MenuVO> menuList = null;

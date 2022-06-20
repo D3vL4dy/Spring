@@ -13,8 +13,8 @@ import com.jsp.service.NoticeService;
 
 import kr.or.ddit.dao.NoticeDAOBean;
 
-public class NoticeServiceImpl implements NoticeService{
-	
+public class NoticeServiceImpl implements NoticeService {
+
 	private NoticeDAOBean noticeDAOBean;
 
 	public void setNoticeDAO(NoticeDAOBean noticeDAOBean) {
@@ -23,9 +23,9 @@ public class NoticeServiceImpl implements NoticeService{
 
 	@Override
 	public Map<String, Object> getNoticeList(Criteria cri) throws SQLException {
-		
-		SearchCriteria searchCri = (SearchCriteria)cri;
-		
+
+		SearchCriteria searchCri = (SearchCriteria) cri;
+
 		Map<String, Object> dataMap = new HashMap<String, Object>();
 
 		// 현재 page 번호에 맞는 리스트를 perPageNum 개수 만큼 가져오기.
@@ -47,16 +47,16 @@ public class NoticeServiceImpl implements NoticeService{
 
 	@Override
 	public NoticeVO getNotice(int nno) throws SQLException {
-		noticeDAOBean.increaseViewCount(nno);		
+		noticeDAOBean.increaseViewCount(nno);
 		NoticeVO board = noticeDAOBean.selectNoticeByNno(nno);
-		
+
 		return board;
 	}
 
 	@Override
 	public NoticeVO getNoticeForModify(int nno) throws SQLException {
 		NoticeVO board = noticeDAOBean.selectNoticeByNno(nno);
-		
+
 		return board;
 	}
 

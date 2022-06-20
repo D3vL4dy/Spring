@@ -15,18 +15,18 @@ import com.jsp.service.LoginSearchMemberService;
 
 import kr.or.ddit.dao.MemberDAOBean;
 
-public class MemberServiceImpl implements LoginSearchMemberService{
-	
+public class MemberServiceImpl implements LoginSearchMemberService {
+
 	private MemberDAOBean memberDAOBean;
+
 	public void setMemberDAOBean(MemberDAOBean memberDAOBeanBean) {
 		this.memberDAOBean = memberDAOBeanBean;
 	}
-	
-	@Override
-	public void enabled(String id,int state) throws Exception {
-		memberDAOBean.enabledMember(id,state);
-	}
 
+	@Override
+	public void enabled(String id, int state) throws Exception {
+		memberDAOBean.enabledMember(id, state);
+	}
 
 	@Override
 	public MemberVO getMember(String id) throws Exception {
@@ -34,21 +34,20 @@ public class MemberServiceImpl implements LoginSearchMemberService{
 		return member;
 	}
 
-	
 	@Override
-	public List<MemberVO> getMemberList() throws Exception {		
+	public List<MemberVO> getMemberList() throws Exception {
 		return null;
 	}
 
 	@Override
-	public List<MemberVO> getMemberList(Criteria arg0) throws Exception {		// TODO Auto-generated method stub
+	public List<MemberVO> getMemberList(Criteria arg0) throws Exception { // TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Map<String, Object> getMemberListForPage(Criteria cri) throws Exception {
 
-		SearchCriteria searchCri = (SearchCriteria)cri;
+		SearchCriteria searchCri = (SearchCriteria) cri;
 		Map<String, Object> dataMap = new HashMap<String, Object>();
 
 		PageMaker pageMaker = new PageMaker();
@@ -62,7 +61,7 @@ public class MemberServiceImpl implements LoginSearchMemberService{
 
 		return dataMap;
 	}
-	
+
 	@Override
 	public void modify(MemberVO member) throws Exception {
 		memberDAOBean.updateMember(member);
@@ -80,16 +79,13 @@ public class MemberServiceImpl implements LoginSearchMemberService{
 	}
 
 	@Override
-	public void login(String id, String pwd) throws NotFoundIdException, 
-													InvalidPasswordException,
-													SQLException {
+	public void login(String id, String pwd) throws NotFoundIdException, InvalidPasswordException, SQLException {
 		MemberVO member = memberDAOBean.selectMemberById(id);
 		if (member == null)
 			throw new NotFoundIdException();
 		if (!pwd.equals(member.getPwd()))
 			throw new InvalidPasswordException();
-		
-	}
 
+	}
 
 }

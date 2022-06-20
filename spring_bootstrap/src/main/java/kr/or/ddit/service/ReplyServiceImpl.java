@@ -14,8 +14,8 @@ import com.jsp.service.ReplyService;
 import kr.or.ddit.dao.MemberDAOBean;
 import kr.or.ddit.dao.ReplyDAOBean;
 
-public class ReplyServiceImpl implements ReplyService{
-	
+public class ReplyServiceImpl implements ReplyService {
+
 	private ReplyDAOBean replyDAOBean;
 
 	public void setReplyDAOBean(ReplyDAOBean replyDAOBean) {
@@ -23,22 +23,24 @@ public class ReplyServiceImpl implements ReplyService{
 	}
 
 	private MemberDAOBean memberDAOBean;
+
 	public void setMemberDAOBean(MemberDAOBean memberDAOBean) {
 		this.memberDAOBean = memberDAOBean;
 	}
-	
+
 	@Override
-	public Map<String, Object> getReplyList(int bno,Criteria cri) throws SQLException {
+	public Map<String, Object> getReplyList(int bno, Criteria cri) throws SQLException {
 
 		Map<String, Object> dataMap = new HashMap<String, Object>();
 
 		List<ReplyVO> replyList = replyDAOBean.selectReplyListPage(bno, cri);
 
-		if(replyList!=null)for(ReplyVO reply : replyList) {
-			MemberVO member = memberDAOBean.selectMemberById(reply.getReplyer());
-			reply.setPicture(member.getPicture());
-		}
-		
+		if (replyList != null)
+			for (ReplyVO reply : replyList) {
+				MemberVO member = memberDAOBean.selectMemberById(reply.getReplyer());
+				reply.setPicture(member.getPicture());
+			}
+
 		int count = replyDAOBean.countReply(bno);
 
 		PageMaker pageMaker = new PageMaker();
